@@ -294,7 +294,7 @@ function Header({
         </Col>
         <Col span={24} md={18} className="header-control">
           <Badge size="small" count={4}>
-            <Dropdown overlay={menu} trigger={["click"]}>
+            <Dropdown menu={menu} trigger={["click"]}>
               <a
                 href="#pablo"
                 className="ant-dropdown-link"
@@ -320,7 +320,7 @@ function Header({
             width={360}
             onClose={hideDrawer}
             placement={placement}
-            visible={visible}
+            open={visible}
           >
             <div layout="vertical">
               <div className="header-top">

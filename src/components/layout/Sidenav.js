@@ -12,9 +12,9 @@
 
 // import { useState } from "react";
 import { Menu, Button } from "antd";
-import { NavLink, useLocation } from "react-router-dom";
+import { Outlet, NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
-
+// import { Outlet } from 
 function Sidenav({ color }) {
   const { pathname } = useLocation();
   const page = pathname.replace("/", "");
@@ -160,6 +160,10 @@ function Sidenav({ color }) {
     </svg>,
   ];
 
+  const t_chart_names = [
+    "d1", "d2"
+  ]
+
   return (
     <>
       <div className="brand">
@@ -180,6 +184,26 @@ function Sidenav({ color }) {
             </span>
             <span className="label">Dashboard</span>
           </NavLink>
+          <Menu style={{paddingLeft: 10}}> 
+            { 
+              t_chart_names.map((name) => (
+                <Menu.Item key={"/docs/"+name} >
+                  <NavLink to={"/docs/"+name} >
+                    <span
+                      className="icon"
+                      style={{
+                        background: page === "dashboard" ? color : "",
+                      }}
+                    >
+                      {dashboard}
+                    </span>
+                    <span className="label">{name}</span>
+                  </NavLink>
+                </Menu.Item>
+              )
+            )
+          }
+          </Menu>
         </Menu.Item>
         <Menu.Item key="2">
           <NavLink to="/tables">
